@@ -1,7 +1,7 @@
 # 修改默认IP & 固件名称 & 编译署名
-sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
-sed -i "s/hostname='.*'/hostname='Roc'/g" package/base-files/files/bin/config_generate
-sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Build by Roc')/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+#sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+#sed -i "s/hostname='.*'/hostname='Roc'/g" package/base-files/files/bin/config_generate
+#sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Build by Roc')/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 
 # 移除要替换的包
 rm -rf feeds/packages/net/alist
@@ -22,15 +22,15 @@ function git_sparse_clone() {
 }
 
 # Alist & AdGuardHome & WolPlus & AriaNg & DDNS & 集客无线AC控制器 & Lucky & 雅典娜LED控制
-git clone --depth=1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
+#git clone --depth=1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git_sparse_clone main https://github.com/kenzok8/small-package adguardhome luci-app-adguardhome
-git_sparse_clone main https://github.com/VIKINGYFY/packages luci-app-wolplus
-git_sparse_clone master https://github.com/immortalwrt/packages net/ariang
-git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages net/ddns-scripts
-git clone --depth=1 https://github.com/lwb1978/openwrt-gecoosac package/openwrt-gecoosac
-git clone --depth=1 https://github.com/gdy666/luci-app-lucky package/luci-app-lucky
-git clone --depth=1 https://github.com/NONGFAH/luci-app-athena-led package/luci-app-athena-led
-chmod +x package/luci-app-athena-led/root/etc/init.d/athena_led package/luci-app-athena-led/root/usr/sbin/athena-led
+#git_sparse_clone main https://github.com/VIKINGYFY/packages luci-app-wolplus
+#git_sparse_clone master https://github.com/immortalwrt/packages net/ariang
+#git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages net/ddns-scripts
+#git clone --depth=1 https://github.com/lwb1978/openwrt-gecoosac package/openwrt-gecoosac
+#git clone --depth=1 https://github.com/gdy666/luci-app-lucky package/luci-app-lucky
+#git clone --depth=1 https://github.com/NONGFAH/luci-app-athena-led package/luci-app-athena-led
+#chmod +x package/luci-app-athena-led/root/etc/init.d/athena_led package/luci-app-athena-led/root/usr/sbin/athena-led
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
